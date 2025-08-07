@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 // List of allowed IPs
-const allowedIPs = ['123.45.67.89', '111.222.333.444']
+const allowedIPs = ['188.245.77.11']
 
 export function middleware(req: NextRequest) {
   console.log(`Request from IP: ${req.headers.get('x-forwarded-for') || req.ip || 'unknown'}`);
