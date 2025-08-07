@@ -12,13 +12,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "ResultCheck - Student Result Checking System | Learnyst.pk",
+    default:
+      "ResultCheck - BISE BWP 9th Result & All Board Results | Learnyst.pk",
     template: "%s | ResultCheck - Learnyst.pk",
   },
   description:
-    "Check your educational board results instantly with ResultCheck. Fast, reliable, and free result checking service for 9th, 10th, 11th, and 12th class students across all major boards of Pakistan.",
+    "Check BISE BWP 9th result and all board results instantly with ResultCheck. Fast, reliable, and free result checking service for 9th, 10th, 11th, and 12th class students across all major boards of Pakistan.",
   icons: ["/logo.svg"],
   keywords: [
+    "BISE BWP 9th result",
+    "Bahawalpur board result",
+    "BISE Bahawalpur result",
     "student results",
     "board results Pakistan",
     "result checking",
@@ -32,6 +36,7 @@ export const metadata: Metadata = {
     "Learnyst.pk",
     "ResultCheck",
   ],
+
   authors: [{ name: "Learnyst.pk Team" }],
   creator: "Learnyst.pk",
   publisher: "Learnyst.pk",
