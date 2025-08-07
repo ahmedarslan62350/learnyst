@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /results?*
+
+# Sitemap
+Sitemap: https://learnyst.pk/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
