@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg shadow-md">
                 <GraduationCap className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-slate-800">ResultCheck</span>
+              <span className="text-xl font-bold text-slate-800">Learnyst PK</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -93,7 +93,7 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
                   <GraduationCap className="h-6 w-6 text-white" />
                 </div>
-                <span className="text-xl font-bold">ResultCheck</span>
+                <span className="text-xl font-bold">Learnyst PK</span>
               </div>
               <p className="text-slate-300 mb-4 max-w-md">
                 Pakistan's most trusted student result portal, providing instant access to examination results from all major educational boards across the country.

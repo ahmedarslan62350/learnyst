@@ -1,9 +1,19 @@
-import Link from "next/link"
-import { GraduationCap, ArrowLeft, HelpCircle, ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import type { Metadata } from "next"
+import Link from "next/link";
+import {
+  GraduationCap,
+  ArrowLeft,
+  HelpCircle,
+  ChevronDown,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import type { Metadata } from "next";
+import Layout from "../components/Layout";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions - Result Checking Help & Support",
@@ -20,14 +30,15 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "FAQ - Result Checking Help & Support | ResultCheck",
-    description: "Get answers to common questions about checking educational board results in Pakistan.",
+    description:
+      "Get answers to common questions about checking educational board results in Pakistan.",
     url: "https://learnyst.pk/faq",
     type: "website",
   },
   alternates: {
     canonical: "/faq",
   },
-}
+};
 
 const faqData = [
   {
@@ -80,7 +91,8 @@ const faqData = [
       },
       {
         question: "Can I use ResultCheck on my mobile phone?",
-        answer: "Yes, ResultCheck is fully mobile-responsive and works perfectly on smartphones and tablets.",
+        answer:
+          "Yes, ResultCheck is fully mobile-responsive and works perfectly on smartphones and tablets.",
       },
       {
         question: "Why is my result showing as 'Not Found'?",
@@ -104,15 +116,18 @@ const faqData = [
       },
       {
         question: "Are Federal Board results available?",
-        answer: "Yes, we support Federal Board (FBISE) results for both SSC and HSSC examinations.",
+        answer:
+          "Yes, we support Federal Board (FBISE) results for both SSC and HSSC examinations.",
       },
       {
         question: "Can I check AJK Board results here?",
-        answer: "Yes, we support AJK (Azad Jammu & Kashmir) Board results for all classes.",
+        answer:
+          "Yes, we support AJK (Azad Jammu & Kashmir) Board results for all classes.",
       },
       {
         question: "What about private board results?",
-        answer: "We primarily focus on government board results. Private board results may have limited availability.",
+        answer:
+          "We primarily focus on government board results. Private board results may have limited availability.",
       },
     ],
   },
@@ -141,7 +156,8 @@ const faqData = [
       },
       {
         question: "Can I share my result on social media?",
-        answer: "Yes, you can share your result. However, be cautious about sharing personal information publicly.",
+        answer:
+          "Yes, you can share your result. However, be cautious about sharing personal information publicly.",
       },
     ],
   },
@@ -165,7 +181,8 @@ const faqData = [
       },
       {
         question: "Do you store my roll number?",
-        answer: "We don't permanently store roll numbers. They're only used temporarily for the search process.",
+        answer:
+          "We don't permanently store roll numbers. They're only used temporarily for the search process.",
       },
       {
         question: "How do you protect student data?",
@@ -189,15 +206,18 @@ const faqData = [
       },
       {
         question: "Can I check someone else's result?",
-        answer: "You can check any result if you have the correct roll number, but please respect others' privacy.",
+        answer:
+          "You can check any result if you have the correct roll number, but please respect others' privacy.",
       },
       {
         question: "The website is not working. What alternatives do I have?",
-        answer: "You can check results directly on your board's official website or visit their office in person.",
+        answer:
+          "You can check results directly on your board's official website or visit their office in person.",
       },
       {
         question: "How often is the result data updated?",
-        answer: "We update our database regularly when new results are published by the boards.",
+        answer:
+          "We update our database regularly when new results are published by the boards.",
       },
     ],
   },
@@ -221,7 +241,8 @@ const faqData = [
       },
       {
         question: "Are all boards recognized equally?",
-        answer: "Yes, all government boards in Pakistan are equally recognized for higher education and employment.",
+        answer:
+          "Yes, all government boards in Pakistan are equally recognized for higher education and employment.",
       },
       {
         question: "What if my board is not listed?",
@@ -235,19 +256,23 @@ const faqData = [
     questions: [
       {
         question: "How can I contact ResultCheck support?",
-        answer: "You can reach us via email at support@learnyst.pk or use our contact form on the Contact page.",
+        answer:
+          "You can reach us via email at support@learnyst.pk or use our contact form on the Contact page.",
       },
       {
         question: "How quickly do you respond to queries?",
-        answer: "We typically respond to all inquiries within 24 hours during business days.",
+        answer:
+          "We typically respond to all inquiries within 24 hours during business days.",
       },
       {
         question: "Can I suggest new features?",
-        answer: "We welcome user feedback and suggestions. Please contact us with your ideas.",
+        answer:
+          "We welcome user feedback and suggestions. Please contact us with your ideas.",
       },
       {
         question: "Do you provide phone support?",
-        answer: "Currently, we provide support primarily through email and our contact form for better documentation.",
+        answer:
+          "Currently, we provide support primarily through email and our contact form for better documentation.",
       },
       {
         question: "Is there a mobile app available?",
@@ -256,121 +281,111 @@ const faqData = [
       },
     ],
   },
-]
+];
 
 export default function FAQPage() {
   return (
     <>
-      {/* JSON-LD Structured Data for FAQ */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqData.flatMap((category) =>
-              category.questions.map((faq) => ({
-                "@type": "Question",
-                name: faq.question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: faq.answer,
-                },
-              })),
-            ),
-          }),
-        }}
-      />
-
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-        {/* Header */}
-        <header className="border-b border-slate-200/80 backdrop-blur-sm bg-white/90 shadow-sm">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center space-x-2">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg shadow-md">
-                  <GraduationCap className="h-6 w-6 text-white" />
-                </div>
-                <span className="text-xl font-bold text-slate-800">ResultCheck</span>
-              </Link>
-              <Link href="/">
-                <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
-                  <ArrowLeft className="h-4 w-4" />
-                  <span>Back to Home</span>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Hero Section */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-4">
-              <HelpCircle className="h-12 w-12 text-blue-600 mr-3" />
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-800">Frequently Asked Questions</h1>
-            </div>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6"></div>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Find answers to common questions about checking your educational board results
-            </p>
-          </div>
-
-          {/* FAQ Categories */}
-          <div className="space-y-8">
-            {faqData.map((category, categoryIndex) => (
-              <Card key={categoryIndex} className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-slate-800 flex items-center">
-                    <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full mr-3"></div>
-                    {category.category}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-8 pt-0">
-                  <div className="space-y-4">
-                    {category.questions.map((faq, faqIndex) => (
-                      <Collapsible key={faqIndex}>
-                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 text-left bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors duration-200 group">
-                          <h3 className="font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-                            {faq.question}
-                          </h3>
-                          <ChevronDown className="h-5 w-5 text-slate-500 group-hover:text-blue-600 transition-all duration-200 group-data-[state=open]:rotate-180" />
-                        </CollapsibleTrigger>
-                        <CollapsibleContent className="px-4 py-3 text-slate-700 leading-relaxed bg-white rounded-b-lg border-l-4 border-blue-500">
-                          {faq.answer}
-                        </CollapsibleContent>
-                      </Collapsible>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Contact CTA */}
-          <Card className="mt-12 shadow-lg border-0 bg-gradient-to-r from-blue-50 to-purple-50">
-            <CardContent className="p-8 text-center">
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Still Have Questions?</h3>
-              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-                Can't find the answer you're looking for? Our support team is here to help you with any questions about
-                result checking.
+      <Layout>
+        {" "}
+        {/* JSON-LD Structured Data for FAQ */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqData.flatMap((category) =>
+                category.questions.map((faq) => ({
+                  "@type": "Question",
+                  name: faq.question,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: faq.answer,
+                  },
+                }))
+              ),
+            }),
+          }}
+        />
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+          {/* Main Content */}
+          <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            {/* Hero Section */}
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <HelpCircle className="h-12 w-12 text-blue-600 mr-3" />
+                <h1 className="text-4xl md:text-5xl font-bold text-slate-800">
+                  Frequently Asked Questions
+                </h1>
+              </div>
+              <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6"></div>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                Find answers to common questions about checking your educational
+                board results
               </p>
-              <Link href="/contact">
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                  Contact Support
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-        </main>
+            </div>
 
-        {/* Background decoration */}
-        <div className="fixed inset-0 -z-10 overflow-hidden">
-          <div className="absolute -top-40 -right-32 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
+            {/* FAQ Categories */}
+            <div className="space-y-8">
+              {faqData.map((category, categoryIndex) => (
+                <Card
+                  key={categoryIndex}
+                  className="shadow-lg border-0 bg-white/80 backdrop-blur-sm"
+                >
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-slate-800 flex items-center">
+                      <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full mr-3"></div>
+                      {category.category}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-8 pt-0">
+                    <div className="space-y-4">
+                      {category.questions.map((faq, faqIndex) => (
+                        <Collapsible key={faqIndex}>
+                          <CollapsibleTrigger className="flex items-center justify-between w-full p-4 text-left bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors duration-200 group">
+                            <h3 className="font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                              {faq.question}
+                            </h3>
+                            <ChevronDown className="h-5 w-5 text-slate-500 group-hover:text-blue-600 transition-all duration-200 group-data-[state=open]:rotate-180" />
+                          </CollapsibleTrigger>
+                          <CollapsibleContent className="px-4 py-3 text-slate-700 leading-relaxed bg-white rounded-b-lg border-l-4 border-blue-500">
+                            {faq.answer}
+                          </CollapsibleContent>
+                        </Collapsible>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Contact CTA */}
+            <Card className="mt-12 shadow-lg border-0 bg-gradient-to-r from-blue-50 to-purple-50">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                  Still Have Questions?
+                </h3>
+                <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+                  Can't find the answer you're looking for? Our support team is
+                  here to help you with any questions about result checking.
+                </p>
+                <Link href="/contact">
+                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                    Contact Support
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </main>
+
+          {/* Background decoration */}
+          <div className="fixed inset-0 -z-10 overflow-hidden">
+            <div className="absolute -top-40 -right-32 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
+          </div>
         </div>
-      </div>
+      </Layout>
     </>
-  )
+  );
 }
