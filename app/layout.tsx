@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: {
     default:
-      "BISE 9th Class Result 2025 - Check Your Bahawalpur Board Results | ResultCheck",
+      "BISE BWP 9th Class Result 2025 - Check Your Bahawalpur Board Results | ResultCheck",
     template: "%s | ResultCheck - Learnyst.pk",
   },
   description:
