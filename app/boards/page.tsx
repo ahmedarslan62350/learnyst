@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  GraduationCap,
-  ArrowLeft,
-  MapPin,
-  Users,
-  BookOpen,
-  ExternalLink,
-} from "lucide-react";
+import { MapPin, Users, BookOpen, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -226,6 +219,7 @@ const boards = [
     districts: ["Bahawalpur", "Bahawalnagar", "Rahim Yar Khan"],
     website: "bisebwp.edu.pk",
     featured: false,
+    supported: true,
   },
   {
     id: "bise-dera-ghazi-khan",
@@ -308,6 +302,7 @@ const boards = [
 
 export default function BoardsPage() {
   const featuredBoards = boards.filter((board) => board.featured);
+  const supportedBoards = boards.filter((board) => board.supported);
   const otherBoards = boards.filter((board) => !board.featured);
 
   return (
@@ -359,6 +354,74 @@ export default function BoardsPage() {
                 covered, and result checking procedures.
               </p>
             </div>
+
+            {/* Supported Boards */}
+            <section className="mb-16">
+              <h2 className="text-3xl font-bold text-slate-800 mb-8 flex items-center">
+                <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full mr-3"></div>
+                Supported Educational Boards
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {supportedBoards.map((board) => (
+                  <Card
+                    key={board.id}
+                    className="shadow-lg border-0 bg-green-100/30 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group"
+                  >
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-3">
+                        <Badge
+                          variant="secondary"
+                          className="bg-blue-100 text-blue-800"
+                        >
+                          {board.province}
+                        </Badge>
+                        <Badge variant="outline" className="text-xs">
+                          Est. {board.established}
+                        </Badge>
+                      </div>
+                      <CardTitle className="text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                        {board.shortName}
+                      </CardTitle>
+                      <p className="text-sm text-slate-600">{board.name}</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-slate-700 leading-relaxed mb-4">
+                        {board.description}
+                      </p>
+
+                      <div className="space-y-3 mb-6">
+                        <div className="flex items-center space-x-2 text-sm text-slate-600">
+                          <Users className="h-4 w-4" />
+                          <span>{board.students} students</span>
+                        </div>
+                        <div className="flex items-start space-x-2 text-sm text-slate-600">
+                          <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                          <span>{board.districts.join(", ")}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <Link href={`/boards/${board.id}`}>
+                          <Button variant="outline" size="sm">
+                            <BookOpen className="h-4 w-4 mr-2" />
+                            View Details
+                          </Button>
+                        </Link>
+                        <a
+                          href={`https://${board.website}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-blue-600 hover:text-blue-700 flex items-center"
+                        >
+                          Official Website
+                          <ExternalLink className="h-3 w-3 ml-1" />
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
 
             {/* Featured Boards */}
             <section className="mb-16">
