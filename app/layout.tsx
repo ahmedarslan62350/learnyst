@@ -7,6 +7,7 @@ import GoogleAdSense from "./components/GoogleAdSense";
 import { Suspense } from "react";
 import { ToastProvider } from "@/components/ui/toast";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -133,6 +134,20 @@ export default function RootLayout({
             }),
           }}
         />
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16636440375"
+        ></script>
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'AW-16636440375');
+        `}
+        </Script>
 
         {/* <script src="https://fpyf8.com/88/tag.min.js" data-zone="161792" async data-cfasync="false"></script> */}
       </head>
