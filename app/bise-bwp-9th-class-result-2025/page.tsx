@@ -1,6 +1,7 @@
 import React from "react";
 import ResultPage from "./ResultPage";
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://learnyst.pk"),
   alternates: {
-    canonical: "/",
+    canonical: "https://learnyst.pk/bise-bwp-9th-result-2025",
   },
   openGraph: {
     type: "website",
@@ -86,7 +87,39 @@ export const metadata: Metadata = {
 };
 
 const page = () => {
-  return <ResultPage />;
+  return (
+    <>
+      <ResultPage />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How can I check my BISE Bahawalpur 9th result 2025?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "You can check your BISE Bahawalpur 9th Class Result 2025 online at Learnyst.pk using your roll number, by name, or via SMS.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "When will the BISE Bahawalpur 9th Class Result 2025 be announced?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "The BISE Bahawalpur 9th Class Result 2025 is expected to be announced in August 2025. Exact dates will be updated here.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+    </>
+  );
 };
 
 export default page;

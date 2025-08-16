@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title:
     "BISE Bahawalpur - Board of Intermediate and Secondary Education Bahawalpur | Results",
   description:
-    "Complete information about BISE Bahawalpur including result checking, examination schedules, districts covered, and contact details. Check your Bahawalpur board results instantly.",
+    "Check Bahawalpur board results 2025 online. Find 9th class, 10th class, 11th, and 12th results BISE BWP. Get latest updates, gazette, roll number wise and name wise results for Bahawalpur Board exams.",
   keywords: [
     "BISE Bahawalpur",
     "Bahawalpur board results",
@@ -56,7 +56,7 @@ export default function BISEBahawalpurPage() {
             name: "Board of Intermediate and Secondary Education, Bahawalpur",
             alternateName: "BISE Bahawalpur",
             description:
-              "Serving the twin cities of Bahawalpur and Islamabad along with surrounding areas.",
+              "Check Bahawalpur board results 2025 online. Find 9th class, 10th class, 11th, and 12th results BISE BWP. Get latest updates, gazette, roll number wise and name wise results for Bahawalpur Board exams. with full details and updates.",
             url: "https://learnyst.pk/boards/bise-bahawalpur",
             foundingDate: "1977",
             address: {
