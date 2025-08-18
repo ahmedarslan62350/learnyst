@@ -4,14 +4,6 @@ import { GazetteUpload } from "@/lib/models/Board";
 import path from "path";
 import { writeFileSync } from "fs";
 
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '30mb',
-    },
-  }
-}
-
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -33,7 +25,6 @@ export async function POST(request: NextRequest) {
     const fileUrl = path.join(__dirname, `${Date.now()}-${file.name}`);
     writeFileSync(fileUrl, Buffer.from(await file.arrayBuffer()));
 
-    
     const db = await getDatabase();
 
     const gazetteUpload: GazetteUpload = {
@@ -86,3 +77,11 @@ export async function GET() {
     );
   }
 }
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "200mb",
+    },
+  },
+};
