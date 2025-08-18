@@ -4,6 +4,14 @@ import { GazetteUpload } from "@/lib/models/Board";
 import path from "path";
 import { writeFileSync } from "fs";
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '30mb',
+    },
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
