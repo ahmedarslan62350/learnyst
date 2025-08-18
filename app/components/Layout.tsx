@@ -21,7 +21,6 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Blog", href: "/blog" },
     { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
-    { name: "Upload Gazette", href: "/upload-gazette" },
     { name: "Policies", href: "/policies" },
   ]
 

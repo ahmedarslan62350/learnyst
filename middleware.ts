@@ -3,8 +3,6 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 // List of allowed IPs
-const allowedIPs = ['188.245.77.11']
-
 export function middleware(req: NextRequest) {
   console.log(`Request from IP: ${req.headers.get('x-forwarded-for') || req.ip || 'unknown'}`);
   
@@ -15,10 +13,10 @@ export function middleware(req: NextRequest) {
 
   // Apply only to restricted routes
   if (pathname.startsWith('/admin') || pathname.startsWith('/upload-gazette')) {
-    if (!allowedIPs.includes(ip)) {
-      url.pathname = '/404'
-      return NextResponse.redirect(url)
-    }
+    // if (!allowedIPs.includes(ip)) {
+    //   url.pathname = '/404'
+    //   return NextResponse.redirect(url)
+    // }
   }
 
   return NextResponse.next()
