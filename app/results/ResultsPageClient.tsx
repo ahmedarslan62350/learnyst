@@ -2,10 +2,11 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { GraduationCap, ArrowLeft, CheckCircle, XCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "../components/Layout";
+import axios from "axios";
 
 interface StudentResult {
   rollNumber: string;
@@ -15,6 +16,7 @@ interface StudentResult {
   obtainedMarks: number;
   percentage: number;
 }
+const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function ResultsPageClient() {
   const searchParams = useSearchParams();
@@ -29,24 +31,48 @@ export default function ResultsPageClient() {
       return;
     }
 
+    if (!url) {
+      console.error("NEXT_PUBLIC_BACKEND_URL is undefined!");
+      return;
+    }
     // Simulate API call to fetch results
     const fetchResults = async () => {
       setIsLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      console.log("Helo");
+      try {
+        const { data } = await axios.get(
+          `${url}/api/v1/result?rollNo=${rollNumber}`
+        );
 
-      // Mock result data - randomly generate pass/fail for demo
-      const isPass = Math.random() > 0.3; // 70% chance of passing
+        const { name, marks, rollNo } = data.data as {
+          name: string;
+          marks: number;
+          rollNo: number;
+        };
 
-      const mockResult: StudentResult = {
-        rollNumber: rollNumber,
-        studentName: "Muhammad Ahmad Khan",
-        overallStatus: isPass ? "Pass" : "Fail",
-        totalMarks: 1100,
-        obtainedMarks: isPass ? 892 : 445,
-        percentage: isPass ? 81.09 : 40.45,
-      };
+        const result: StudentResult = {
+          obtainedMarks: marks,
+          rollNumber: rollNo.toString(),
+          studentName: name,
+          totalMarks: 1200,
+          percentage: (marks / 1200) * 100,
+          overallStatus: "Pass",
+        };
 
-      setResult(mockResult);
+        setResult(result);
+      } catch (error) {
+        const result: StudentResult = {
+          obtainedMarks: 0,
+          rollNumber: rollNumber,
+          studentName: "Unknown",
+          totalMarks: 1200,
+          percentage: 0,
+          overallStatus: "Fail",
+        };
+
+        setResult(result);
+      }
+
       setIsLoading(false);
     };
 
