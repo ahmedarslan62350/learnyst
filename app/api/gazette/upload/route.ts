@@ -1,17 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
+// app/api/gazette/upload/route.ts
+import { NextResponse } from "next/server";
 import { getDatabase } from "@/lib/mongodb";
 import { GazetteUpload } from "@/lib/models/Board";
+import fs from "fs";
 import path from "path";
-import { writeFileSync } from "fs";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
+    // Parse multipart form data
     const formData = await request.formData();
-    const file = formData.get("file") as File;
-    const boardId = formData.get("boardId") as string;
-    const boardName = formData.get("boardName") as string;
-    const examType = formData.get("examType") as string;
-    const uploadedBy = formData.get("uploadedBy") as string;
+
+    const file = formData.get("file") as Blob;
+    const boardId = formData.get("boardId")?.toString();
+    const boardName = formData.get("boardName")?.toString();
+    const examType = formData.get("examType")?.toString();
+    const uploadedBy = formData.get("uploadedBy")?.toString();
 
     if (!file || !boardId || !boardName || !examType || !uploadedBy) {
       return NextResponse.json(
@@ -20,20 +23,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In a real implementation, you would upload the file to a storage service
-    // For now, we'll simulate this with a placeholder URL
-    const fileUrl = path.join(__dirname, `${Date.now()}-${file.name}`);
-    writeFileSync(fileUrl, Buffer.from(await file.arrayBuffer()));
+    // Ensure uploads directory exists
+    const uploadDir = path.join(process.cwd(), "uploads");
+    if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 
+    // Save file to local filesystem
+    const fileName = `${Date.now()}-${file instanceof File ? file.name : "upload"}`;
+    const filePath = path.join(uploadDir, fileName);
+    const buffer = Buffer.from(await file.arrayBuffer());
+    fs.writeFileSync(filePath, buffer);
+
+    // Insert metadata into MongoDB
     const db = await getDatabase();
-
     const gazetteUpload: GazetteUpload = {
       id: `gazette-${Date.now()}`,
       boardId,
       boardName,
       examType,
-      fileName: file.name,
-      fileUrl,
+      fileName: fileName,
+      fileUrl: filePath,
       uploadedBy,
       uploadedAt: new Date(),
       status: "pending",
@@ -48,7 +56,7 @@ export async function POST(request: NextRequest) {
       upload: { ...gazetteUpload, _id: result.insertedId },
     });
   } catch (error) {
-    console.error("Upload error:", error);
+    console.error("Upload route error:", error);
     return NextResponse.json(
       { success: false, error: "Failed to upload gazette" },
       { status: 500 }
@@ -65,10 +73,7 @@ export async function GET() {
       .sort({ uploadedAt: -1 })
       .toArray();
 
-    return NextResponse.json({
-      success: true,
-      uploads: uploads,
-    });
+    return NextResponse.json({ success: true, uploads });
   } catch (error) {
     console.error("Database error:", error);
     return NextResponse.json(
@@ -77,11 +82,3 @@ export async function GET() {
     );
   }
 }
-
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "200mb",
-    },
-  },
-};
