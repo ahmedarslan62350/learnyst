@@ -7,33 +7,16 @@ import path from "path";
 
 export async function POST(request: Request) {
   try {
-    // Parse multipart form data
-    const formData = await request.formData();
+    const { boardId, boardName, examType, uploadedBy, filePath ,fileName} =
+      await request.json();
 
-    const file = formData.get("file") as Blob;
-    const boardId = formData.get("boardId")?.toString();
-    const boardName = formData.get("boardName")?.toString();
-    const examType = formData.get("examType")?.toString();
-    const uploadedBy = formData.get("uploadedBy")?.toString();
-
-    if (!file || !boardId || !boardName || !examType || !uploadedBy) {
+    if (!filePath || !boardId || !boardName || !examType || !uploadedBy || !fileName) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    // Ensure uploads directory exists
-    const uploadDir = path.join(process.cwd(), "uploads");
-    if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
-
-    // Save file to local filesystem
-    const fileName = `${Date.now()}-${file instanceof File ? file.name : "upload"}`;
-    const filePath = path.join(uploadDir, fileName);
-    const buffer = Buffer.from(await file.arrayBuffer());
-    fs.writeFileSync(filePath, buffer);
-
-    // Insert metadata into MongoDB
     const db = await getDatabase();
     const gazetteUpload: GazetteUpload = {
       id: `gazette-${Date.now()}`,

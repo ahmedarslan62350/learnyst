@@ -24,6 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import axios from "axios";
+import { saveFileLocally } from "@/lib/saveFileLocally";
 
 interface Board {
   id: string;
@@ -114,6 +115,7 @@ export default function GazetteUploadClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (
       !formData.file ||
       !formData.boardId ||
@@ -128,22 +130,22 @@ export default function GazetteUploadClient() {
     setError("");
 
     try {
-      const uploadFormData = new FormData();
-      uploadFormData.append("file", formData.file);
-      uploadFormData.append("boardId", formData.boardId);
-      uploadFormData.append("boardName", formData.boardName);
-      uploadFormData.append("examType", formData.examType);
-      uploadFormData.append("uploadedBy", formData.uploadedBy);
+      // Save file locally first
+      const localFilePath = await saveFileLocally(formData.file);
 
-      const { data } = await axios.post("/api/gazette/upload", uploadFormData,{
-        maxBodyLength: Infinity,
-        maxContentLength: Infinity,
-      });
+      const metadata = {
+        boardId: formData.boardId,
+        boardName: formData.boardName,
+        examType: formData.examType,
+        uploadedBy: formData.uploadedBy,
+        filePath: localFilePath, // send only the path
+        filename: formData.file?.name || "",
+      };
+
+      const { data } = await axios.post("/api/gazette/metadata", metadata);
 
       if (data.success) {
-        setSuccess(
-          "Gazette uploaded successfully! It will be reviewed by our team."
-        );
+        setSuccess("Gazette metadata saved successfully!");
         setFormData({
           boardId: "",
           boardName: "",
@@ -151,17 +153,18 @@ export default function GazetteUploadClient() {
           uploadedBy: "",
           file: null,
         });
-        // Reset file input
+
         const fileInput = document.getElementById("file") as HTMLInputElement;
         if (fileInput) fileInput.value = "";
 
-        fetchUploads(); // Refresh uploads list
+        fetchUploads(); // refresh list
         setTimeout(() => setSuccess(""), 5000);
       } else {
-        setError(data.error || "Failed to upload gazette");
+        setError(data.error || "Failed to save metadata");
       }
-    } catch (error) {
-      setError("Failed to upload gazette");
+    } catch (err) {
+      console.error(err);
+      setError("Failed to save gazette locally");
     } finally {
       setIsLoading(false);
     }
