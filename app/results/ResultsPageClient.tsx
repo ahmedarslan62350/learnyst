@@ -38,10 +38,9 @@ export default function ResultsPageClient() {
     // Simulate API call to fetch results
     const fetchResults = async () => {
       setIsLoading(true);
-      console.log("Helo");
       try {
         const { data } = await axios.get(
-          `${url}/api/v1/result?rollNo=${rollNumber}`
+          `${url}/api/v1/result?rollNo=${rollNumber}`,
         );
 
         const { name, marks, rollNo } = data.data as {
@@ -55,14 +54,15 @@ export default function ResultsPageClient() {
           rollNumber: rollNo.toString(),
           studentName: name,
           totalMarks: 1200,
-          percentage: (marks / 1200) * 100,
+          percentage: Number(((marks / 1200) * 100).toFixed(2)),
           overallStatus: "Pass",
         };
 
+        
         setResult(result);
       } catch (error) {
         const result: StudentResult = {
-          obtainedMarks: 0,
+          obtainedMarks: 100,
           rollNumber: rollNumber,
           studentName: "Unknown",
           totalMarks: 1200,
@@ -71,9 +71,9 @@ export default function ResultsPageClient() {
         };
 
         setResult(result);
+      } finally {
+        setIsLoading(false);
       }
-
-      setIsLoading(false);
     };
 
     fetchResults();
@@ -126,7 +126,7 @@ export default function ResultsPageClient() {
           <div className="grid lg:grid-cols-4 gap-6">
             {/* Left Ad Space */}
             <div className="hidden lg:block">
-              <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm h-96">
+              {/* <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm h-96">
                 <CardContent className="p-6 flex items-center justify-center h-full">
                   <div className="text-center text-slate-400">
                     <div className="w-full h-64 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
@@ -135,7 +135,7 @@ export default function ResultsPageClient() {
                     <p className="text-xs">300 x 250</p>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
 
             {/* Main Result Content */}
@@ -205,7 +205,7 @@ export default function ResultsPageClient() {
               </Card>
 
               {/* Mobile Ad Space */}
-              <Card className="lg:hidden shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+              {/* <Card className="lg:hidden shadow-lg border-0 bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <div className="text-center text-slate-400">
                     <div className="w-full h-32 bg-slate-100 rounded-lg flex items-center justify-center mb-2">
@@ -214,7 +214,7 @@ export default function ResultsPageClient() {
                     <p className="text-xs">Mobile Banner - 320 x 100</p>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
 
               {/* Disclaimer */}
               <div className="text-center">
@@ -227,7 +227,7 @@ export default function ResultsPageClient() {
 
             {/* Right Ad Space */}
             <div className="hidden lg:block">
-              <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm h-96">
+              {/* <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm h-96">
                 <CardContent className="p-6 flex items-center justify-center h-full">
                   <div className="text-center text-slate-400">
                     <div className="w-full h-64 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
@@ -236,13 +236,13 @@ export default function ResultsPageClient() {
                     <p className="text-xs">300 x 250</p>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
 
           {/* Bottom Ad Space */}
           <div className="mt-12">
-            <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+            {/* <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="text-center text-slate-400">
                   <div className="w-full h-24 bg-slate-100 rounded-lg flex items-center justify-center mb-2">
@@ -251,7 +251,7 @@ export default function ResultsPageClient() {
                   <p className="text-xs">Leaderboard - 728 x 90</p>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </main>
 
