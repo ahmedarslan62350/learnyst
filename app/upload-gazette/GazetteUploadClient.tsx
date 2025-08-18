@@ -135,7 +135,10 @@ export default function GazetteUploadClient() {
       uploadFormData.append("examType", formData.examType);
       uploadFormData.append("uploadedBy", formData.uploadedBy);
 
-      const { data } = await axios.post("/api/gazette/upload", uploadFormData);
+      const { data } = await axios.post("/api/gazette/upload", uploadFormData,{
+        maxBodyLength: Infinity,
+        maxContentLength: Infinity,
+      });
 
       if (data.success) {
         setSuccess(
