@@ -67,19 +67,9 @@ export async function POST(request: NextRequest) {
 
     const buffer = await getFile(gazette.fileName);
 
-    const jsonUrl = await extractPDFData(
-      buffer || "",
-      Number(pageNo) || 180,
-      __dirname
-    );
+    await extractPDFData(buffer || "", Number(pageNo) || 180);
 
-    const fileBuffer = readFileSync(jsonUrl);
-
-    await deleteFile("uploads/output.json");
-    await uploadFile("uploads/output.json", fileBuffer);
-
-
-    await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/update`)
+    await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/update`);
 
     return NextResponse.json({
       success: true,
