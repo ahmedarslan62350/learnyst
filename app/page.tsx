@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge"
 import Layout from "./components/Layout"
 import ResultTimer from "./components/ResultTimer"
 
-interface TimerData {
+export interface TimerData {
   id: string
   boardName: string
   examType: string

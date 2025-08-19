@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "../components/Layout";
 import axios from "axios";
+import { TimerData } from "../page";
+import ResultTimer from "../components/ResultTimer";
 
 interface StudentResult {
   rollNumber: string;
@@ -24,6 +26,7 @@ export default function ResultsPageClient() {
   const rollNumber = searchParams.get("roll");
   const [isLoading, setIsLoading] = useState(true);
   const [result, setResult] = useState<StudentResult | null>(null);
+  const [timerData, setTimerData] = useState<TimerData | null>(null);
 
   useEffect(() => {
     if (!rollNumber) {
@@ -35,12 +38,24 @@ export default function ResultsPageClient() {
       console.error("NEXT_PUBLIC_BACKEND_URL is undefined!");
       return;
     }
+
+    const fetchTimer = async () => {
+      try {
+        const response = await fetch("/api/admin/timer");
+        const data = await response.json();
+        if (data.success && data.timer && data.timer.isActive) {
+          setTimerData(data.timer);
+        }
+      } catch (error) {
+        console.error("Failed to fetch timer:", error);
+      }
+    };
     // Simulate API call to fetch results
     const fetchResults = async () => {
       setIsLoading(true);
       try {
         const { data } = await axios.get(
-          `${url}/api/v1/result?rollNo=${rollNumber}`,
+          `${url}/api/v1/result?rollNo=${rollNumber}`
         );
 
         const { name, marks, rollNo } = data.data as {
@@ -58,7 +73,6 @@ export default function ResultsPageClient() {
           overallStatus: "Pass",
         };
 
-        
         setResult(result);
       } catch (error) {
         const result: StudentResult = {
@@ -77,6 +91,7 @@ export default function ResultsPageClient() {
     };
 
     fetchResults();
+    fetchTimer();
   }, [rollNumber, router]);
 
   if (isLoading) {
@@ -92,6 +107,14 @@ export default function ResultsPageClient() {
           </p>
         </div>
       </div>
+    );
+  }
+
+  if (timerData && timerData.announcementTime > new Date().toISOString()) {
+    return (
+      <>
+        <ResultTimer timerData={timerData} />
+      </>
     );
   }
 
