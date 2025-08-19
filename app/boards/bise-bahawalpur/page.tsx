@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "Board of Intermediate and Secondary Education Bahawalpur",
     "Bahawalpur board exam results",
     "BISE Bahawalpur contact",
-    "Islamabad board results",
+    "Bahawalpur board results",
   ],
   openGraph: {
     title: "BISE Bahawalpur - Board Information & Result Checking",
