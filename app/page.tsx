@@ -211,7 +211,7 @@ export default function StudentResultSystem() {
 
           {/* Timer or Search Form */}
           <div className="mb-12">
-            {timerData ? (
+            {timerData && timerData.announcementTime > new Date().toISOString() ? (
               <ResultTimer timerData={timerData} />
             ) : (
               <div className="max-w-md mx-auto">

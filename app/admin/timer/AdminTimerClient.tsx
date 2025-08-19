@@ -286,6 +286,7 @@ export default function AdminTimerClient() {
                       <SelectItem value="BISE Rawalpindi">BISE Rawalpindi</SelectItem>
                       <SelectItem value="FBISE">Federal Board (FBISE)</SelectItem>
                       <SelectItem value="BISE Multan">BISE Multan</SelectItem>
+                      <SelectItem value="BISE Bahawalpur">BISE Bahawalpur</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
