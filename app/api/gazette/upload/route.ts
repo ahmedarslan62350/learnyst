@@ -2,15 +2,15 @@
 import { NextResponse } from "next/server";
 import { getDatabase } from "@/lib/mongodb";
 import { GazetteUpload } from "@/lib/models/Board";
-import fs from "fs";
-import path from "path";
 
 export async function POST(request: Request) {
   try {
-    const { boardId, boardName, examType, uploadedBy, filePath ,fileName} =
+    const { boardId, boardName, examType, uploadedBy, fileName } =
       await request.json();
 
-    if (!filePath || !boardId || !boardName || !examType || !uploadedBy || !fileName) {
+    console.log(boardId, boardName, examType, uploadedBy, fileName);
+
+    if (!boardId || !boardName || !examType || !uploadedBy || !fileName) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
         { status: 400 }
@@ -24,7 +24,6 @@ export async function POST(request: Request) {
       boardName,
       examType,
       fileName: fileName,
-      fileUrl: filePath,
       uploadedBy,
       uploadedAt: new Date(),
       status: "pending",

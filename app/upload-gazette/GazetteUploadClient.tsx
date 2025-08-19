@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -25,6 +24,7 @@ import {
 } from "@/components/ui/select";
 import axios from "axios";
 import { saveFileLocally } from "@/lib/saveFileLocally";
+import { uploadFile } from "@/lib/s3";
 
 interface Board {
   id: string;
@@ -131,18 +131,31 @@ export default function GazetteUploadClient() {
 
     try {
       // Save file locally first
-      const localFilePath = await saveFileLocally(formData.file);
+      const filename =
+        Date.now() + Math.floor(Math.random() * 90000) + formData.file.name;
+
+      const {
+        data: { url },
+      } = await axios.post("/api/gazette/presigned-url", {
+        fileName: filename,
+        fileType: formData.file.type,
+      });
 
       const metadata = {
         boardId: formData.boardId,
         boardName: formData.boardName,
         examType: formData.examType,
         uploadedBy: formData.uploadedBy,
-        filePath: localFilePath, // send only the path
-        filename: formData.file?.name || "",
+        fileName: filename || "",
       };
 
-      const { data } = await axios.post("/api/gazette/metadata", metadata);
+      await axios.put(url, formData.file, {
+        headers: {
+          "Content-Type": formData.file.type,
+        },
+      });
+      
+      const { data } = await axios.post("/api/gazette/upload", metadata);
 
       if (data.success) {
         setSuccess("Gazette metadata saved successfully!");

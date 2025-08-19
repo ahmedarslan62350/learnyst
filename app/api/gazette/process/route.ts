@@ -3,8 +3,10 @@ import { getDatabase } from "@/lib/mongodb";
 import { GazetteUpload, Board } from "@/lib/models/Board";
 import { ObjectId } from "mongodb";
 import { extractPDFData } from "@/lib/extract";
-import { deleteFile, uploadFile } from "@/lib/s3";
+import { deleteFile, getFile, uploadFile } from "@/lib/s3";
 import { readFileSync } from "fs";
+import path from "path";
+import axios from "axios";
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,16 +65,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await extractPDFData(
-      gazette.fileUrl || "",
+    const buffer = await getFile(gazette.fileName);
+
+    const jsonUrl = await extractPDFData(
+      buffer || "",
       Number(pageNo) || 180,
       __dirname
     );
 
-    const fileBuffer = readFileSync(gazette.fileUrl);
+    const fileBuffer = readFileSync(jsonUrl);
 
     await deleteFile("uploads/output.json");
-    await uploadFile('uploads/output.json', fileBuffer)
+    await uploadFile("uploads/output.json", fileBuffer);
+
+
+    await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/update`)
 
     return NextResponse.json({
       success: true,

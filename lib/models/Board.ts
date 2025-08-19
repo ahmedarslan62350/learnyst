@@ -40,7 +40,6 @@ export interface GazetteUpload {
   boardName: string
   examType: string
   fileName: string
-  fileUrl: string
   uploadedBy: string
   uploadedAt: Date
   status: 'pending' | 'approved' | 'rejected'

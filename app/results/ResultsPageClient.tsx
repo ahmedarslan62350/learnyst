@@ -13,7 +13,7 @@ interface StudentResult {
   studentName: string;
   overallStatus: "Pass" | "Fail";
   totalMarks: number;
-  obtainedMarks: number;
+  obtainedMarks: number | "Supplies";
   percentage: number;
 }
 const url = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -62,7 +62,7 @@ export default function ResultsPageClient() {
         setResult(result);
       } catch (error) {
         const result: StudentResult = {
-          obtainedMarks: 100,
+          obtainedMarks: "Supplies",
           rollNumber: rollNumber,
           studentName: "Unknown",
           totalMarks: 1200,

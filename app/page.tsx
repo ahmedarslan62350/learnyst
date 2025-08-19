@@ -70,9 +70,6 @@ export default function StudentResultSystem() {
     e.preventDefault()
     if (rollNumber.trim()) {
       setIsLoading(true)
-      // Simulate loading time
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-      // Navigate to results page with roll number
       router.push(`/results?roll=${encodeURIComponent(rollNumber.trim())}`)
     }
   }

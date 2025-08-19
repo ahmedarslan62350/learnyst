@@ -1,6 +1,11 @@
-import { DeleteObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import {
+  DeleteObjectCommand,
+  GetObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from "@aws-sdk/client-s3";
 
-const s3 = new S3Client({
+export const s3 = new S3Client({
   region: "ap-southeast-1", // replace with your bucket region
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
@@ -33,4 +38,24 @@ export const deleteFile = async (fileName: string) => {
   } catch (error) {
     console.error("Error deleting file:", error);
   }
+};
+
+export const getFile = async (filename: string): Promise<Buffer> => {
+  const command = new GetObjectCommand({
+    Bucket: process.env.AWS_S3_BUCKET_NAME!,
+    Key: filename,
+  });
+
+  const response = await s3.send(command);
+
+  // Ensure Body exists and is a stream
+  if (!response.Body) throw new Error("File not found");
+
+  // Convert the stream into a Buffer
+  const chunks: Buffer[] = [];
+  for await (const chunk of response.Body as any) {
+    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+  }
+
+  return Buffer.concat(chunks);
 };
