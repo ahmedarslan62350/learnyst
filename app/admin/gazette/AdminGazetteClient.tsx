@@ -41,6 +41,7 @@ export default function AdminGazetteClient() {
   const [error, setError] = useState("");
   const [processingId, setProcessingId] = useState<string | null>(null);
   const [adminNotes, setAdminNotes] = useState<{ [key: string]: string }>({});
+  const [pageNo, setPageNo] = useState(0);
 
   useEffect(() => {
     fetchUploads();
@@ -76,7 +77,7 @@ export default function AdminGazetteClient() {
           uploadId,
           status,
           adminNotes: notes,
-          pageNo: uploads.find((upload) => upload._id === uploadId)?.pageNo,
+          pageNo: pageNo,
         }),
       });
 
@@ -287,13 +288,8 @@ export default function AdminGazetteClient() {
                         Page No (Optional)
                       </label>
                       <Input
-                        value={adminNotes[upload.pageNo] || ""}
-                        onChange={(e) =>
-                          setAdminNotes((prev) => ({
-                            ...prev,
-                            [upload.pageNo]: e.target.value,
-                          }))
-                        }
+                        value={pageNo}
+                        onChange={(e) => setPageNo(Number(e.target.value))}
                         placeholder="PageNo.."
                         className="text-sm"
                       />

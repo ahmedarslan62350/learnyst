@@ -3,9 +3,7 @@ import { getDatabase } from "@/lib/mongodb";
 import { GazetteUpload, Board } from "@/lib/models/Board";
 import { ObjectId } from "mongodb";
 import { extractPDFData } from "@/lib/extract";
-import { deleteFile, getFile, uploadFile } from "@/lib/s3";
-import { readFileSync } from "fs";
-import path from "path";
+import { getFile } from "@/lib/s3";
 import axios from "axios";
 
 export async function POST(request: NextRequest) {
