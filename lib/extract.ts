@@ -13,9 +13,10 @@ export const extractPDFData = async (
     pdfParser.on("pdfParser_dataReady", async (pdfData) => {
       try {
         const textItems: { x: number; y: number; text: string }[] = [];
+        console.log(pageNo);
 
         pdfData.Pages.forEach((page, i) => {
-          if (i + 1 >= pageNo) {
+          if (i + 1 >= Number(pageNo)) {
             page.Texts.forEach((text) => {
               textItems.push({
                 x: text.x,
