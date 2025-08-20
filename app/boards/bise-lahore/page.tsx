@@ -132,11 +132,6 @@ export default function BISELahorePage() {
                     Enter your roll number to instantly check your BISE Lahore examination results.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                      type="text"
-                      placeholder="Enter your roll number"
-                      className="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
                     <Link href="/">
                       <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8">
                         Check Result

@@ -145,7 +145,8 @@ export default function StudentResultSystem() {
   ]
 
   const popularSearches = [
-    "BISE Rawalpindi Result 2024",
+    "BISE Rawalpindi Result 2025",
+    "BISE Bahawalpur Result 2025",
     "Matric Result Check",
     "Board Result by Roll Number",
     "Inter Result Pakistan",

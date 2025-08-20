@@ -20,26 +20,28 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "BISE Bahawalpur - Board of Intermediate and Secondary Education Bahawalpur | Results",
+    "BISE BWP Result 2025 | Bahawalpur Board 9th, 10th, 11th, 12th Results",
   description:
-    "Check Bahawalpur board results 2025 online. Find 9th class, 10th class, 11th, and 12th results BISE BWP. Get latest updates, gazette, roll number wise and name wise results for Bahawalpur Board exams.",
+    "Check BISE Bahawalpur (BWP) Result 2025 online by roll number & name. Get 9th class, 10th class, Inter Part 1 & 2 results, gazette updates, and official announcements from Bahawalpur Board.",
   keywords: [
-    "BISE Bahawalpur",
-    "Bahawalpur board results",
-    "Board of Intermediate and Secondary Education Bahawalpur",
-    "Bahawalpur board exam results",
-    "BISE Bahawalpur contact",
-    "Bahawalpur board results",
+    "BISE BWP Result 2025",
+    "Bahawalpur Board Result 2025",
+    "BISE Bahawalpur 9th Result",
+    "Bahawalpur Board 10th Result",
+    "BISE BWP 11th Result",
+    "Bahawalpur Board 12th Result",
+    "Bahawalpur Board Gazette 2025",
+    "BISE Bahawalpur Roll No Wise Result",
   ],
   openGraph: {
-    title: "BISE Bahawalpur - Board Information & Result Checking",
+    title: "BISE BWP Result 2025 | Bahawalpur Board Results Online",
     description:
-      "Complete information about BISE Bahawalpur including result checking and examination details.",
+      "Get Bahawalpur Board (BISE BWP) results for Matric & Intermediate 2025. Check online by roll no, name, or download gazette.",
     url: "https://learnyst.pk/boards/bise-bahawalpur",
     type: "website",
   },
   alternates: {
-    canonical: "/boards/bise-bahawalpur",
+    canonical: "https://learnyst.pk/boards/bise-bahawalpur",
   },
 };
 
@@ -143,11 +145,6 @@ export default function BISEBahawalpurPage() {
                     Bahawalpur examination results.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                      type="text"
-                      placeholder="Enter your roll number"
-                      className="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    />
                     <Link href="/">
                       <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8">
                         Check Result

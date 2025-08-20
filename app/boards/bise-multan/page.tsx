@@ -131,11 +131,6 @@ export default function BISEMultanPage() {
                     Enter your roll number to instantly check your BISE Multan examination results.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                      type="text"
-                      placeholder="Enter your roll number"
-                      className="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                    />
                     <Link href="/">
                       <Button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-orange-700 hover:to-yellow-700 px-8">
                         Check Result

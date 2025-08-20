@@ -131,11 +131,6 @@ export default function BISEKarachiPage() {
                     Enter your roll number to instantly check your BISE Karachi examination results.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                      type="text"
-                      placeholder="Enter your roll number"
-                      className="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    />
                     <Link href="/">
                       <Button className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 px-8">
                         Check Result

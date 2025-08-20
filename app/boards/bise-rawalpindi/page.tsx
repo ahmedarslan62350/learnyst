@@ -131,11 +131,6 @@ export default function BISERawalpindiPage() {
                     Enter your roll number to instantly check your BISE Rawalpindi examination results.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                      type="text"
-                      placeholder="Enter your roll number"
-                      className="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    />
                     <Link href="/">
                       <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8">
                         Check Result
