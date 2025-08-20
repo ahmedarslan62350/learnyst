@@ -8,14 +8,13 @@ import { Suspense } from "react";
 import { ToastProvider } from "@/components/ui/toast";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
-import {SpeedInsights} from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "BISE All Boards Results 2025 - Check Your Results",
+    default: "BISE All Boards Results 2025 - Check Your Results",
     template: "%s | ResultCheck - Learnyst.pk",
   },
   description:
@@ -38,7 +37,6 @@ export const metadata: Metadata = {
     "Learnyst.pk",
     "ResultCheck",
   ],
-
   authors: [{ name: "Learnyst.pk Team" }],
   creator: "Learnyst.pk",
   publisher: "Learnyst.pk",
@@ -48,9 +46,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://learnyst.pk"),
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -61,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "ResultCheck - Learnyst.pk",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/logo.svg",
         width: 1200,
         height: 630,
         alt: "ResultCheck - Student Result Checking System",
@@ -108,7 +103,7 @@ export default function RootLayout({
         <meta
           name="google-adsense-account"
           content="ca-pub-9231506459397955"
-        ></meta>
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -118,11 +113,6 @@ export default function RootLayout({
               name: "Learnyst.pk",
               url: "https://learnyst.pk/",
               logo: "https://learnyst.pk/logo.svg",
-              // sameAs: [
-              //   "https://www.facebook.com/learnystpk",
-              //   "https://twitter.com/learnystpk",
-              //   "https://www.instagram.com/learnystpk",
-              // ],
             }),
           }}
         />
@@ -133,15 +123,12 @@ export default function RootLayout({
         ></script>
         <Script id="google-ads" strategy="afterInteractive">
           {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'AW-16636440375');
-        `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16636440375');
+          `}
         </Script>
-
-        {/* <script src="https://fpyf8.com/88/tag.min.js" data-zone="161792" async data-cfasync="false"></script> */}
       </head>
       <body className={inter.className}>
         <Suspense fallback={null}>

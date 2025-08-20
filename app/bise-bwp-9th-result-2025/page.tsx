@@ -19,25 +19,25 @@ import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "BISE Bahawalpur Board Results 2025 | BISE BWP 9th, 10th, 11th, 12th",
+  title: "BISE BWP 9th Result 2025 | Check by Roll Number",
   description:
-    "Check BISE BWP Results 2025 online by roll number or name. Get Bahawalpur Board 9th, 10th, 11th, and 12th class updates, gazette download, official address and contact details.",
+    "Check BISE BWP 9th Result 2025 online by roll number or name. Get Bahawalpur Board updates, gazette download, official address and contact details.",
   keywords: [
-    "BISE BWP Result 2025",
     "BISE BWP 9th Result 2025",
-    "BISE Bahawalpur Board results",
-    "Bahawalpur board result check by roll number",
+    "BISE BWP 9th result check by roll number",
+    "Bahawalpur board result",
     "BISE BWP address",
-    "BWP result gazette 2025",
+    "BWP result 2025",
+    "Bise BWP 9th result check by roll number 2025",
   ],
   alternates: {
-    canonical: "https://learnyst.pk/boards/bise-bahawalpur",
+    canonical: "https://learnyst.pk/bise-bwp-9th-result-2025",
   },
   openGraph: {
-    title: "BISE Bahawalpur Results 2025 | Check by Roll Number & Name",
+    title: "BISE BWP 9th Result 2025 | Check by Roll Number",
     description:
-      "Check Bahawalpur Board (BISE BWP) 9th, 10th, 11th, and 12th class results 2025 online. Search by roll number, name, or download gazette.",
-    url: "https://learnyst.pk/boards/bise-bahawalpur",
+      "Check Bahawalpur Board (BISE BWP) 9th class result 2025 by roll number, name, or download gazette.",
+    url: "https://learnyst.pk/bise-bwp-9th-result-2025",
     type: "website",
   },
 };
@@ -53,10 +53,10 @@ export default function BISEBahawalpurPage() {
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
             name: "Board of Intermediate and Secondary Education, Bahawalpur",
-            alternateName: ["BISE Bahawalpur", "BISE BWP"],
+            alternateName: "BISE Bahawalpur",
             description:
-              "Check Bahawalpur Board Results 2025 online. Find 9th, 10th, 11th, and 12th class BISE BWP results by roll number, name, or download gazette. Latest updates and official details.",
-            url: "https://learnyst.pk/boards/bise-bahawalpur",
+              "Check Bahawalpur board results 2025 online. Find 9th class, 10th class, 11th, and 12th results BISE BWP. Get latest updates, gazette, roll number wise and name wise results for Bahawalpur Board exams. Full details and updates.",
+            url: "https://learnyst.pk/bise-bwp-9th-result-2025",
             foundingDate: "1977",
             address: {
               "@type": "PostalAddress",
@@ -69,11 +69,7 @@ export default function BISEBahawalpurPage() {
               contactType: "customer service",
               areaServed: "Punjab",
             },
-            sameAs: [
-              "https://bisebwp.edu.pk",
-              "https://learnyst.pk/bise-bwp-9th-class-result-2025",
-              "https://learnyst.pk/boards/bise-bahawalpur",
-            ],
+            sameAs: ["https://bisebwp.edu.pk"],
           }),
         }}
       />
@@ -120,16 +116,37 @@ export default function BISEBahawalpurPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              BISE Bahawalpur (BISE BWP) Board Results 2025 – 9th, 10th, 11th,
-              12th
+              BISE BWP 9th Result 2025 | Bahawalpur Board
             </h1>
-
-            <h2 className="text-xl text-slate-600 max-w-4xl leading-relaxed">
-              Check BISE BWP Results 2025 by roll number, name, or gazette. The
-              Board of Intermediate and Secondary Education Bahawalpur has been
-              serving students since 1979, conducting examinations for thousands
-              of candidates every year across Punjab.
+            <h2 className="text-xl text-slate-600 max-w-4xl leading-relaxed mb-6">
+              Check BISE BWP 9th Result 2025 instantly by roll number or name.
+              Get latest updates, gazette, official address, and Bahawalpur
+              board contact details.
             </h2>
+
+            <h3 className="text-lg font-semibold text-slate-800 mb-2">
+              How to Check BISE BWP 9th Result 2025
+            </h3>
+            <p className="text-slate-600 mb-4">
+              Enter your roll number in the search box above to get instant 9th
+              class results for BISE Bahawalpur (BWP). You can also search by
+              student name or download the official gazette.
+            </p>
+
+            <h3 className="text-lg font-semibold text-slate-800 mb-2">
+              BISE BWP Address & Contact
+            </h3>
+            <p className="text-slate-600 mb-4">
+              Board of Intermediate and Secondary Education, Bahawalpur. For
+              inquiries, visit{" "}
+              <a
+                href="https://bisebwp.edu.pk"
+                className="text-blue-600 underline"
+              >
+                bisebwp.edu.pk
+              </a>
+              .
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">

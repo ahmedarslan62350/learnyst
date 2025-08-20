@@ -1,123 +1,68 @@
 import React from "react";
 import ResultPage from "./ResultPage";
 import { Metadata } from "next";
-import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: {
-    default:
-      "BISE BWP 9th Class Result 2025 - Check Your Bahawalpur Board Results | ResultCheck",
-    template: "%s | ResultCheck - Learnyst.pk",
-  },
+  title: "BISE BWP 9th Class Result 2025 | Check by Roll Number - Learnyst.pk",
   description:
-    "Check BISE BWP 9th result and all board results instantly with ResultCheck. Fast, reliable, and free result checking service for 9th, 10th, 11th, and 12th class students across all major boards of Pakistan.",
-  icons: ["/logo.svg"],
+    "BISE BWP 9th Class Result 2025 — Check Bahawalpur SSC Part 1 results by roll number or name. Official BISE BWP 9th result checker, gazette download and contact info.",
   keywords: [
-    "BISE BWP 9th result 2025",
-    "Bahawalpur board result 9th class 2025",
-    "BISE Bahawalpur result 2025",
-    "student results 2025",
-    "board results Pakistan 2025",
-    "result checking 2025",
-    "educational results 2025",
-    "9th class results 2025",
-    "10th class results 2025",
-    "11th class results 2025",
-    "12th class results 2025",
-    "SSC results 2025",
-    "HSSC results",
-    "Learnyst.pk",
-    "ResultCheck",
+    "bise bwp 9th result 2025",
+    "bise bwp 9th result check by roll number 2025",
+    "BISE Bahawalpur 9th class result",
+    "BWP result 2025 roll no",
   ],
-
-  authors: [{ name: "Learnyst.pk Team" }],
-  creator: "Learnyst.pk",
-  publisher: "Learnyst.pk",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://learnyst.pk"),
   alternates: {
-    canonical: "https://learnyst.pk/bise-bwp-9th-result-2025",
+    canonical: "https://learnyst.pk/bise-bwp-9th-class-result-2025",
   },
   openGraph: {
+    title: "BISE BWP 9th Result 2025 | Bahawalpur 9th Class Result",
+    description:
+      "Check BISE BWP 9th Class Result 2025 by roll number and name. Get updates, gazette and official contact for BISE Bahawalpur.",
+    url: "https://learnyst.pk/bise-bwp-9th-class-result-2025",
     type: "website",
-    locale: "en_US",
-    url: "https://learnyst.pk",
-    title: "ResultCheck - Student Result Checking System | Learnyst.pk",
-    description:
-      "Check your educational board results instantly with ResultCheck. Fast, reliable, and free result checking service for students across Pakistan.",
-    siteName: "ResultCheck - Learnyst.pk",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ResultCheck - Student Result Checking System",
-      },
-    ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ResultCheck - Student Result Checking System | Learnyst.pk",
-    description:
-      "Check your educational board results instantly with ResultCheck. Fast, reliable, and free result checking service for students across Pakistan.",
-    images: ["/twitter-image.jpg"],
-    creator: "@learnystpk",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+};
+
+const faq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to check BISE BWP 9th Result 2025 by roll number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your 9th class roll number in the BISE BWP 9th result checker on this page and click 'Search' to view your result."
+      }
     },
-  },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
-  },
-  generator: "v0.dev",
+    {
+      "@type": "Question",
+      "name": "What is the BISE Bahawalpur official address?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Board of Intermediate & Secondary Education, Bahawalpur — [insert official address here]."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download the BISE BWP gazette for 2025?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — download the official gazette link provided on this page after results are published."
+      }
+    }
+  ]
 };
 
 const page = () => {
   return (
     <>
       <ResultPage />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "How can I check my BISE Bahawalpur 9th result 2025?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "You can check your BISE Bahawalpur 9th Class Result 2025 online at Learnyst.pk using your roll number, by name, or via SMS.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "When will the BISE Bahawalpur 9th Class Result 2025 be announced?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "The BISE Bahawalpur 9th Class Result 2025 is expected to be announced in August 2025. Exact dates will be updated here.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+        />
     </>
   );
 };
