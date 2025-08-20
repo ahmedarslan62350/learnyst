@@ -15,11 +15,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: {
     default:
-      "BISE BWP 9th Class Result 2025 - Check Your Bahawalpur Board Results | ResultCheck",
+      "BISE All Boards Results 2025 - Check Your Results",
     template: "%s | ResultCheck - Learnyst.pk",
   },
   description:
-    "Check BISE BWP 9th result and all board results instantly with ResultCheck. Fast, reliable, and free result checking service for 9th, 10th, 11th, and 12th class students across all major boards of Pakistan.",
+    "Check BISE All Boards result instantly with ResultCheck. Fast, reliable, and free result checking service for 9th, 10th, 11th, and 12th class students across all major boards of Pakistan.",
   icons: ["/logo.svg"],
   keywords: [
     "BISE BWP 9th result",
@@ -68,14 +68,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ResultCheck - Student Result Checking System | Learnyst.pk",
-    description:
-      "Check your educational board results instantly with ResultCheck. Fast, reliable, and free result checking service for students across Pakistan.",
-    images: ["/twitter-image.jpg"],
-    creator: "@learnystpk",
-  },
   robots: {
     index: true,
     follow: true,
@@ -92,7 +84,6 @@ export const metadata: Metadata = {
     yandex: "your-yandex-verification-code",
     yahoo: "your-yahoo-verification-code",
   },
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
