@@ -68,8 +68,8 @@ export default function ResultsPageClient() {
           obtainedMarks: marks,
           rollNumber: rollNo.toString(),
           studentName: name,
-          totalMarks: 1200,
-          percentage: Number(((marks / 1200) * 100).toFixed(2)),
+          totalMarks: 555,
+          percentage: Number(((marks / 555) * 100).toFixed(2)),
           overallStatus: "Pass",
         };
 
@@ -79,7 +79,7 @@ export default function ResultsPageClient() {
           obtainedMarks: "Supplies",
           rollNumber: rollNumber,
           studentName: "Unknown",
-          totalMarks: 1200,
+          totalMarks: 555,
           percentage: 0,
           overallStatus: "Fail",
         };
@@ -190,7 +190,7 @@ export default function ResultsPageClient() {
                         <>
                           <XCircle className="h-12 w-12 text-red-600" />
                           <div className="text-4xl font-bold text-red-600">
-                            FAILED
+                            Try Again next year
                           </div>
                         </>
                       )}
@@ -221,9 +221,9 @@ export default function ResultsPageClient() {
               <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-12 text-center">
                   <div className="text-5xl md:text-6xl font-bold text-slate-800 mb-4">
-                    {result.obtainedMarks} / {result.totalMarks}
+                    {result.obtainedMarks}
                   </div>
-                  <div className="text-xl text-slate-600">Total Marks</div>
+                  <div className="text-xl text-slate-600">Obtained Marks</div>
                 </CardContent>
               </Card>
 
