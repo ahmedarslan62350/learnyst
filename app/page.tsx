@@ -125,10 +125,10 @@ export default function StudentResultSystem() {
 
   const recentUpdates = [
     {
-      title: "BISE Rawalpindi Matric Results 2024 Available",
+      title: "BISE Bahawalpur Matric Results 2024 Available",
       date: "2 hours ago",
       category: "Results",
-      href: "/blog/bise-rawalpindi-matric-results-2024"
+      href: "/blog/bise-bahawalpur-matric-results-2024"
     },
     {
       title: "How to Check Your Result Online - Complete Guide",
@@ -472,7 +472,7 @@ export default function StudentResultSystem() {
                   Which boards are currently supported?
                 </h3>
                 <p className="text-slate-600">
-                  Currently, we fully support BISE Rawalpindi with real-time results. Other boards are coming soon - we're working to add gazette data for all major boards.
+                  Currently, we fully support BISE Bahawalpur with real-time results. Other boards are coming soon - we're working to add gazette data for all major boards.
                 </p>
               </CardContent>
             </Card>

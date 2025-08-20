@@ -57,7 +57,7 @@ const faqData = [
       {
         question: "Which educational boards are supported?",
         answer:
-          "We support all major educational boards in Pakistan including BISE Lahore, BISE Karachi, BISE Rawalpindi, BISE Multan, BISE Faisalabad, and many others for classes 9th, 10th, 11th, and 12th.",
+          "We support all major educational boards in Pakistan including BISE Lahore, BISE Karachi, BISE Rawalpindi, BISE Multan, BISE Faisalabad, BISE Bahawalpur, and many others for classes 9th, 10th, 11th, and 12th.",
       },
       {
         question: "How accurate are the results shown?",
@@ -105,14 +105,14 @@ const faqData = [
     category: "Board-Specific Questions",
     questions: [
       {
-        question: "When are BISE Lahore results typically announced?",
+        question: "When are BISE Bahawalpur results typically announced?",
         answer:
           "BISE Lahore usually announces results within 2-3 months after examinations. Check our website regularly for updates.",
       },
       {
-        question: "How do I find my BISE Karachi result?",
+        question: "How do I find my BISE Bahawalpur result?",
         answer:
-          "Enter your BISE Karachi roll number in our search box. Make sure to include any prefixes or suffixes as printed on your roll number slip.",
+          "Enter your BISE Bahawalpur roll number in our search box. Make sure to include any prefixes or suffixes as printed on your roll number slip.",
       },
       {
         question: "Are Federal Board results available?",
