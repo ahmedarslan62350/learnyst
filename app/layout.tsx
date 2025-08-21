@@ -100,10 +100,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#3b82f6" />
         <meta name="msapplication-TileColor" content="#3b82f6" />
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-9231506459397955"
-        />
+        <meta name="google-adsense-account" content="ca-pub-9231506459397955" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -120,6 +117,11 @@ export default function RootLayout({
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16636440375"
+        ></script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
         ></script>
         <Script id="google-ads" strategy="afterInteractive">
           {`
