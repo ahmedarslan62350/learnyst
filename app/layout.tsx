@@ -101,7 +101,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#3b82f6" />
         <meta name="msapplication-TileColor" content="#3b82f6" />
         <meta name="google-adsense-account" content="ca-pub-9231506459397955" />
-        <script
+        <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -114,15 +114,20 @@ export default function RootLayout({
           }}
         />
 
-        <script
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16636440375"
-        ></script>
-        <script
+        ></Script>
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
           crossOrigin="anonymous"
-        ></script>
+        ></Script>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
+        ></Script>
         <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];

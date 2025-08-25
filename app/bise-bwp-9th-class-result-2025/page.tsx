@@ -1,6 +1,7 @@
 import React from "react";
 import ResultPage from "./ResultPage";
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "BISE BWP 9th Class Result 2025 | Check by Roll Number - Learnyst.pk",
@@ -27,42 +28,48 @@ export const metadata: Metadata = {
 const faq = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "How to check BISE BWP 9th Result 2025 by roll number?",
-      "acceptedAnswer": {
+      name: "How to check BISE BWP 9th Result 2025 by roll number?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Enter your 9th class roll number in the BISE BWP 9th result checker on this page and click 'Search' to view your result."
-      }
+        text: "Enter your 9th class roll number in the BISE BWP 9th result checker on this page and click 'Search' to view your result.",
+      },
     },
     {
       "@type": "Question",
-      "name": "What is the BISE Bahawalpur official address?",
-      "acceptedAnswer": {
+      name: "What is the BISE Bahawalpur official address?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Board of Intermediate & Secondary Education, Bahawalpur — [insert official address here]."
-      }
+        text: "Board of Intermediate & Secondary Education, Bahawalpur — [insert official address here].",
+      },
     },
     {
       "@type": "Question",
-      "name": "Can I download the BISE BWP gazette for 2025?",
-      "acceptedAnswer": {
+      name: "Can I download the BISE BWP gazette for 2025?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes — download the official gazette link provided on this page after results are published."
-      }
-    }
-  ]
+        text: "Yes — download the official gazette link provided on this page after results are published.",
+      },
+    },
+  ],
 };
 
 const page = () => {
   return (
     <>
       <ResultPage />
-      <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
-        />
+      <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+      />
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
     </>
   );
 };

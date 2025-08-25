@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 import {
   GraduationCap,
   ArrowLeft,
@@ -12,14 +12,16 @@ import {
   BookOpen,
   Award,
   Building,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import type { Metadata } from "next"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "BISE Rawalpindi - Board of Intermediate and Secondary Education Rawalpindi | Results",
+  title:
+    "BISE Rawalpindi - Board of Intermediate and Secondary Education Rawalpindi | Results",
   description:
     "Complete information about BISE Rawalpindi including result checking, examination schedules, districts covered, and contact details. Check your Rawalpindi board results instantly.",
   keywords: [
@@ -32,20 +34,27 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "BISE Rawalpindi - Board Information & Result Checking",
-    description: "Complete information about BISE Rawalpindi including result checking and examination details.",
+    description:
+      "Complete information about BISE Rawalpindi including result checking and examination details.",
     url: "https://learnyst.pk/boards/bise-rawalpindi",
     type: "website",
   },
   alternates: {
     canonical: "/boards/bise-rawalpindi",
   },
-}
+};
 
 export default function BISERawalpindiPage() {
   return (
     <>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
       {/* JSON-LD Structured Data */}
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -53,7 +62,8 @@ export default function BISERawalpindiPage() {
             "@type": "EducationalOrganization",
             name: "Board of Intermediate and Secondary Education, Rawalpindi",
             alternateName: "BISE Rawalpindi",
-            description: "Serving the twin cities of Rawalpindi and Islamabad along with surrounding areas.",
+            description:
+              "Serving the twin cities of Rawalpindi and Islamabad along with surrounding areas.",
             url: "https://learnyst.pk/boards/bise-rawalpindi",
             foundingDate: "1977",
             address: {
@@ -81,10 +91,15 @@ export default function BISERawalpindiPage() {
                 <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg shadow-md">
                   <GraduationCap className="h-6 w-6 text-white" />
                 </div>
-                <span className="text-xl font-bold text-slate-800">ResultCheck</span>
+                <span className="text-xl font-bold text-slate-800">
+                  ResultCheck
+                </span>
               </Link>
               <Link href="/boards">
-                <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
+                <Button
+                  variant="outline"
+                  className="flex items-center space-x-2 bg-transparent"
+                >
                   <ArrowLeft className="h-4 w-4" />
                   <span>Back to Boards</span>
                 </Button>
@@ -98,7 +113,10 @@ export default function BISERawalpindiPage() {
           {/* Hero Section */}
           <div className="mb-12">
             <div className="flex items-center space-x-4 mb-6">
-              <Badge variant="secondary" className="bg-purple-100 text-purple-800">
+              <Badge
+                variant="secondary"
+                className="bg-purple-100 text-purple-800"
+              >
                 Punjab
               </Badge>
               <Badge variant="outline">Established 1977</Badge>
@@ -109,9 +127,10 @@ export default function BISERawalpindiPage() {
               Board of Intermediate and Secondary Education, Rawalpindi
             </h1>
             <p className="text-xl text-slate-600 max-w-4xl leading-relaxed">
-              Serving the twin cities of Rawalpindi and Islamabad along with surrounding areas since 1977, BISE
-              Rawalpindi conducts examinations for over 300,000 students annually and maintains high educational
-              standards in the federal capital region.
+              Serving the twin cities of Rawalpindi and Islamabad along with
+              surrounding areas since 1977, BISE Rawalpindi conducts
+              examinations for over 300,000 students annually and maintains high
+              educational standards in the federal capital region.
             </p>
           </div>
 
@@ -128,7 +147,8 @@ export default function BISERawalpindiPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-700 mb-6">
-                    Enter your roll number to instantly check your BISE Rawalpindi examination results.
+                    Enter your roll number to instantly check your BISE
+                    Rawalpindi examination results.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link href="/">
@@ -143,23 +163,30 @@ export default function BISERawalpindiPage() {
               {/* About Section */}
               <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-slate-800">About BISE Rawalpindi</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-slate-800">
+                    About BISE Rawalpindi
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-slate-700 leading-relaxed">
-                    The Board of Intermediate and Secondary Education, Rawalpindi (BISE Rawalpindi) was established in
-                    1977 to serve the educational needs of the twin cities of Rawalpindi and Islamabad, along with
-                    surrounding districts. It conducts examinations for both SSC and HSSC levels.
+                    The Board of Intermediate and Secondary Education,
+                    Rawalpindi (BISE Rawalpindi) was established in 1977 to
+                    serve the educational needs of the twin cities of Rawalpindi
+                    and Islamabad, along with surrounding districts. It conducts
+                    examinations for both SSC and HSSC levels.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
-                    BISE Rawalpindi holds a unique position as it serves both the federal capital Islamabad and the
-                    historic city of Rawalpindi. The board is known for its efficient administration and timely
-                    declaration of results, serving a diverse student population from urban and rural areas.
+                    BISE Rawalpindi holds a unique position as it serves both
+                    the federal capital Islamabad and the historic city of
+                    Rawalpindi. The board is known for its efficient
+                    administration and timely declaration of results, serving a
+                    diverse student population from urban and rural areas.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
-                    With its strategic location and comprehensive educational services, BISE Rawalpindi continues to
-                    play a vital role in the educational development of the region, maintaining high standards of
-                    academic excellence.
+                    With its strategic location and comprehensive educational
+                    services, BISE Rawalpindi continues to play a vital role in
+                    the educational development of the region, maintaining high
+                    standards of academic excellence.
                   </p>
                 </CardContent>
               </Card>
@@ -173,18 +200,40 @@ export default function BISERawalpindiPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-700 mb-6">BISE Rawalpindi serves the following districts:</p>
+                  <p className="text-slate-700 mb-6">
+                    BISE Rawalpindi serves the following districts:
+                  </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     {[
-                      { name: "Rawalpindi", description: "Historic garrison city and commercial center" },
-                      { name: "Islamabad", description: "Federal capital of Pakistan" },
-                      { name: "Attock", description: "Strategic location on River Indus" },
-                      { name: "Chakwal", description: "Agricultural and mineral-rich district" },
-                      { name: "Jhelum", description: "Historic city with military significance" },
+                      {
+                        name: "Rawalpindi",
+                        description:
+                          "Historic garrison city and commercial center",
+                      },
+                      {
+                        name: "Islamabad",
+                        description: "Federal capital of Pakistan",
+                      },
+                      {
+                        name: "Attock",
+                        description: "Strategic location on River Indus",
+                      },
+                      {
+                        name: "Chakwal",
+                        description: "Agricultural and mineral-rich district",
+                      },
+                      {
+                        name: "Jhelum",
+                        description: "Historic city with military significance",
+                      },
                     ].map((district, index) => (
                       <div key={index} className="p-4 bg-slate-50 rounded-lg">
-                        <h4 className="font-semibold text-slate-800 mb-1">{district.name}</h4>
-                        <p className="text-sm text-slate-600">{district.description}</p>
+                        <h4 className="font-semibold text-slate-800 mb-1">
+                          {district.name}
+                        </h4>
+                        <p className="text-sm text-slate-600">
+                          {district.description}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -202,7 +251,9 @@ export default function BISERawalpindiPage() {
                 <CardContent>
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-lg font-semibold text-slate-800 mb-3">SSC (Secondary School Certificate)</h4>
+                      <h4 className="text-lg font-semibold text-slate-800 mb-3">
+                        SSC (Secondary School Certificate)
+                      </h4>
                       <ul className="list-disc list-inside space-y-2 text-slate-700 ml-4">
                         <li>Classes 9th and 10th (Matriculation)</li>
                         <li>Annual examinations conducted in March-April</li>
@@ -218,16 +269,28 @@ export default function BISERawalpindiPage() {
                         <li>Classes 11th and 12th (Intermediate)</li>
                         <li>Annual examinations conducted in April-May</li>
                         <li>Results typically announced in August-September</li>
-                        <li>Pre-Engineering, Pre-Medical, Commerce, and Arts groups</li>
+                        <li>
+                          Pre-Engineering, Pre-Medical, Commerce, and Arts
+                          groups
+                        </li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-slate-800 mb-3">Special Features</h4>
+                      <h4 className="text-lg font-semibold text-slate-800 mb-3">
+                        Special Features
+                      </h4>
                       <ul className="list-disc list-inside space-y-2 text-slate-700 ml-4">
-                        <li>Serves both federal capital and provincial areas</li>
+                        <li>
+                          Serves both federal capital and provincial areas
+                        </li>
                         <li>Modern examination centers and facilities</li>
-                        <li>Online result verification and certificate services</li>
-                        <li>Special arrangements for federal government employees' children</li>
+                        <li>
+                          Online result verification and certificate services
+                        </li>
+                        <li>
+                          Special arrangements for federal government employees'
+                          children
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -240,34 +303,44 @@ export default function BISERawalpindiPage() {
               {/* Quick Stats */}
               <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-slate-800">Quick Facts</CardTitle>
+                  <CardTitle className="text-xl font-bold text-slate-800">
+                    Quick Facts
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Calendar className="h-5 w-5 text-purple-600" />
                     <div>
-                      <div className="font-semibold text-slate-800">Established</div>
+                      <div className="font-semibold text-slate-800">
+                        Established
+                      </div>
                       <div className="text-sm text-slate-600">1977</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Users className="h-5 w-5 text-pink-600" />
                     <div>
-                      <div className="font-semibold text-slate-800">Students</div>
+                      <div className="font-semibold text-slate-800">
+                        Students
+                      </div>
                       <div className="text-sm text-slate-600">300,000+</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Building className="h-5 w-5 text-blue-600" />
                     <div>
-                      <div className="font-semibold text-slate-800">Schools</div>
+                      <div className="font-semibold text-slate-800">
+                        Schools
+                      </div>
                       <div className="text-sm text-slate-600">1,800+</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="h-5 w-5 text-green-600" />
                     <div>
-                      <div className="font-semibold text-slate-800">Districts</div>
+                      <div className="font-semibold text-slate-800">
+                        Districts
+                      </div>
                       <div className="text-sm text-slate-600">5 Districts</div>
                     </div>
                   </div>
@@ -277,34 +350,46 @@ export default function BISERawalpindiPage() {
               {/* Contact Information */}
               <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-slate-800">Contact Information</CardTitle>
+                  <CardTitle className="text-xl font-bold text-slate-800">
+                    Contact Information
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <Building className="h-5 w-5 text-purple-600 mt-0.5" />
                     <div>
-                      <div className="font-semibold text-slate-800">Address</div>
-                      <div className="text-sm text-slate-600">Jhanda Chichi, Rawalpindi, Punjab, Pakistan</div>
+                      <div className="font-semibold text-slate-800">
+                        Address
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        Jhanda Chichi, Rawalpindi, Punjab, Pakistan
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="h-5 w-5 text-pink-600" />
                     <div>
                       <div className="font-semibold text-slate-800">Phone</div>
-                      <div className="text-sm text-slate-600">+92-51-9290404</div>
+                      <div className="text-sm text-slate-600">
+                        +92-51-9290404
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="h-5 w-5 text-blue-600" />
                     <div>
                       <div className="font-semibold text-slate-800">Email</div>
-                      <div className="text-sm text-slate-600">info@biserwp.edu.pk</div>
+                      <div className="text-sm text-slate-600">
+                        info@biserwp.edu.pk
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Globe className="h-5 w-5 text-green-600" />
                     <div>
-                      <div className="font-semibold text-slate-800">Website</div>
+                      <div className="font-semibold text-slate-800">
+                        Website
+                      </div>
                       <a
                         href="https://biserwp.edu.pk"
                         target="_blank"
@@ -322,7 +407,9 @@ export default function BISERawalpindiPage() {
               {/* Related Boards */}
               <Card className="shadow-lg border-0 bg-gradient-to-r from-slate-50 to-slate-100">
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-slate-800">Related Boards</CardTitle>
+                  <CardTitle className="text-xl font-bold text-slate-800">
+                    Related Boards
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <Link
@@ -336,15 +423,21 @@ export default function BISERawalpindiPage() {
                     href="/boards/bise-lahore"
                     className="block p-3 bg-white rounded-lg hover:bg-purple-50 transition-colors"
                   >
-                    <div className="font-semibold text-slate-800">BISE Lahore</div>
+                    <div className="font-semibold text-slate-800">
+                      BISE Lahore
+                    </div>
                     <div className="text-sm text-slate-600">Lahore Region</div>
                   </Link>
                   <Link
                     href="/boards/bise-gujranwala"
                     className="block p-3 bg-white rounded-lg hover:bg-purple-50 transition-colors"
                   >
-                    <div className="font-semibold text-slate-800">BISE Gujranwala</div>
-                    <div className="text-sm text-slate-600">Northern Punjab</div>
+                    <div className="font-semibold text-slate-800">
+                      BISE Gujranwala
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Northern Punjab
+                    </div>
                   </Link>
                 </CardContent>
               </Card>
@@ -359,5 +452,5 @@ export default function BISERawalpindiPage() {
         </div>
       </div>
     </>
-  )
+  );
 }
