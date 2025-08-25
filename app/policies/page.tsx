@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Metadata } from "next";
 import Layout from "../components/Layout";
 import Script from "next/script";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Legal Policies - Privacy Policy & Terms of Service",
@@ -44,12 +45,14 @@ export const metadata: Metadata = {
 export default function PoliciesPage() {
   return (
     <>
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
+      <Head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </Head>
       <Layout>
         {" "}
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">

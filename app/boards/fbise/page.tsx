@@ -17,6 +17,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
+import Head from "next/head";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title:
@@ -46,8 +48,16 @@ export const metadata: Metadata = {
 export default function FBISEPage() {
   return (
     <>
+      <Head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </Head>
       {/* JSON-LD Structured Data */}
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({

@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "../components/Layout";
 import Script from "next/script";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "About Us - Pakistan's Leading Result Checking Platform",
@@ -46,15 +47,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Layout>
-        {" "}
-        {/* JSON-LD Structured Data */}
+      <Head>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+      </Head>
+      <Layout>
+        {" "}
+        {/* JSON-LD Structured Data */}
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

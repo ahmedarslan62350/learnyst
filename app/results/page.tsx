@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import ResultsPageClient from "./ResultsPageClient";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Student Results - View Your Academic Performance",
@@ -37,12 +38,14 @@ export const metadata: Metadata = {
 export default function ResultsPage() {
   return (
     <>
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
+      <Head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </Head>
       <ResultsPageClient />
     </>
   );

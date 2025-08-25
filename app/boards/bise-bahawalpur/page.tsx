@@ -18,6 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
 import Script from "next/script";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "BISE Bahawalpur Board Results 2025 | BISE BWP 9th, 10th, 11th, 12th",
@@ -47,12 +48,14 @@ export default function BISEBahawalpurPage() {
   return (
     <>
       {/* JSON-LD Structured Data */}
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
+      <Head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </Head>
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

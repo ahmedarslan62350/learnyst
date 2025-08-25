@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
 import Layout from "../components/Layout";
 import Script from "next/script";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Educational Boards in Pakistan - Complete Guide & Result Checking",
@@ -308,12 +309,14 @@ export default function BoardsPage() {
 
   return (
     <>
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
+      <Head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </Head>
       <Layout>
         {" "}
         {/* JSON-LD Structured Data */}

@@ -18,6 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import type { Metadata } from "next"
 import Script from "next/script"
+import Head from "next/head"
 
 export const metadata: Metadata = {
   title: "BISE Lahore - Board of Intermediate and Secondary Education Lahore | Results & Information",
@@ -46,12 +47,14 @@ export default function BISELahorePage() {
   return (
     <>
       {/* JSON-LD Structured Data */}
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
+      <Head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9231506459397955"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </Head>
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
