@@ -109,7 +109,7 @@ export default function ContactPageClient() {
                     Call us for immediate help
                   </p>
                   <p className="font-semibold text-slate-800">
-                    +92-XXX-XXXXXXX
+                    +92-300-6119899
                   </p>
                 </CardContent>
               </Card>
