@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "Check BISE BWP Results 2025 online by roll number or name. Get Bahawalpur Board 9th, 10th, 11th, and 12th class updates, gazette download, official address and contact details.",
   keywords: [
     "BISE BWP Result 2025",
-    "BISE BWP 9th Result 2025",
+    "BISE BWP 10th Result 2025",
     "BISE Bahawalpur Board results",
     "Bahawalpur board result check by roll number",
     "BISE BWP address",
