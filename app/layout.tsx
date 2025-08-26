@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Check BISE All Boards result instantly with ResultCheck. Fast, reliable, and free result checking service for 9th, 10th, 11th, and 12th class students across all major boards of Pakistan.",
   icons: ["/logo.svg"],
   keywords: [
-    "BISE BWP 9th result",
+    "BISE BWP 10th result",
     "Bahawalpur board result",
     "BISE Bahawalpur result",
     "student results",

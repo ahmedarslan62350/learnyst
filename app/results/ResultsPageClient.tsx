@@ -69,7 +69,7 @@ export default function ResultsPageClient() {
           rollNumber: rollNo.toString(),
           studentName: name,
           totalMarks: 555,
-          percentage: Number(((marks / 555) * 100).toFixed(2)),
+          percentage: Number(((marks / 1200) * 100).toFixed(2)),
           overallStatus: "Pass",
         };
 
