@@ -47,10 +47,10 @@ export const extractPDFData = async (
             item.text.length === 6
           ) {
             const name = textItems[i - 1]?.text || "Unknown";
-            const rollNo = parseInt(textItems[i]?.text);
+            const rollNo = parseInt(textItems[i]?.text || "0");
 
             const lastRow = rows[rows.length - 1];
-            if (lastRow.rollNo !== rollNo) {
+            if (!lastRow || lastRow.rollNo !== rollNo) {
               rows.push({ marks: 0, name, rollNo });
             }
           }
