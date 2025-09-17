@@ -41,6 +41,18 @@ export const extractPDFData = async (
 
             rows.push({ marks, name, rollNo });
             i += 2;
+          } else if (
+            item &&
+            !isNaN(parseInt(item.text)) &&
+            item.text.length === 6
+          ) {
+            const name = textItems[i - 1]?.text || "Unknown";
+            const rollNo = parseInt(textItems[i]?.text);
+
+            const lastRow = rows[rows.length - 1];
+            if (lastRow.rollNo !== rollNo) {
+              rows.push({ marks: 0, name, rollNo });
+            }
           }
           i++;
         }
