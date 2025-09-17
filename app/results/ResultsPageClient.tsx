@@ -19,6 +19,7 @@ interface StudentResult {
   percentage: number;
 }
 const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+const totalMarks = process.env.NEXT_PUBLIC_TOTAL_MARKS;
 
 export default function ResultsPageClient() {
   const searchParams = useSearchParams();
@@ -65,11 +66,15 @@ export default function ResultsPageClient() {
         };
 
         const result: StudentResult = {
-          obtainedMarks: marks,
+          obtainedMarks: marks == 0 ? "Supplies" : marks,
           rollNumber: rollNo.toString(),
           studentName: name,
           totalMarks: 555,
-          percentage: Number(((marks / 1200) * 100).toFixed(2)),
+          percentage: Number(
+            ((marks / (parseInt(totalMarks!) || 550)) * 100).toFixed(
+              2
+            )
+          ),
           overallStatus: "Pass",
         };
 
