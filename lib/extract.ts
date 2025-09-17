@@ -72,7 +72,7 @@ export const extractPDFData = async (
     });
 
     pdfParser.on("pdfParser_dataError", (err) => {
-      reject(err.parserError);
+      reject(err);
     });
 
     pdfParser.parseBuffer(buffer);
